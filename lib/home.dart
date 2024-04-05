@@ -1,6 +1,6 @@
+import 'package:changelanguage/setting_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'generated/locale_keys.g.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,37 +14,29 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Change Language")),
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(LocaleKeys.title.tr()),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(LocaleKeys.message.tr()),
-        const SizedBox(
-          height: 20,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: const Text("English"),
-              onPressed: () {
-                setState(() {
-                  context.setLocale(const Locale("en", "US"));
-                });
-              },
-            ),
-            ElevatedButton(
-              child: const Text("Myanmar"),
-              onPressed: () {
-                setState(() {
-                  context.setLocale(const Locale("my", "MM"));
-                });
-              },
-            )
-          ],
-        )
-      ]),
+      body: Center(
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(tr("title")),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingPage()),
+              );
+            },
+            child: Text("SETTING"),
+          )
+        ]),
+      ),
     );
   }
 }
