@@ -2,6 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
   static const lang = 'language';
+  static const theme = 'theme';
 
 
   static Future<String?> getData({required String key}) async {

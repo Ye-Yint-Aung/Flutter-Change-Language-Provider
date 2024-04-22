@@ -1,4 +1,4 @@
-import 'package:changelanguage/share_preference.dart';
+import 'package:changelanguage/local/share_preference.dart';
 import 'package:flutter/material.dart';
 
 enum Language {mm, en}
@@ -13,7 +13,7 @@ class LanguageProvider extends ChangeNotifier {
 
   checkLanguage() async {
     final language = await SharedPref.getData(key: SharedPref.lang);
-    print('^^^$language');
+    print('####$language');
 
     if(language == "en"||language==null){
       lang = Language.en;
